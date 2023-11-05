@@ -2,7 +2,7 @@ const { User, Thought } = require("../models");
 
 module.exports = {
   // GET users
-  getUsers: async (req, res) => {
+  getMultipleUsers: async (req, res) => {
     try {
       const users = await User.find().select("-__v");
       res.status(200).json(users);
