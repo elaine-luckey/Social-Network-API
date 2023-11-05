@@ -1,9 +1,9 @@
-// Import reaction Schema, days.js, and mongoose
+// Import Reaction Schema for embedding; Day.js for formatting date
 const mongoose = require("mongoose");
-const reaction = require("./reaction");
+const Reactions = require("./Reaction");
 const dayjs = require("dayjs");
 
-// create thought model schema
+// Schema to create Thought model
 const thoughtSchema = new mongoose.Schema(
   {
     username: {
@@ -16,7 +16,7 @@ const thoughtSchema = new mongoose.Schema(
       minlength: 1,
       maxlength: 280,
     },
-    reaction: [reaction],
+    reactions: [Reactions],
     createdAt: {
       type: Date,
       default: Date.now,
@@ -34,12 +34,12 @@ const thoughtSchema = new mongoose.Schema(
   }
 );
 
-// get thought's reaction array length
+// Retrieve thought's reactions array length
 thoughtSchema.virtual("reactionCount").get(function () {
-  return this.reaction.length;
+  return this.reactions.length;
 });
 
 // Initialize Thought model
-const thought = mongoose.model("thought", thoughtSchema);
+const Thought = mongoose.model("thought", thoughtSchema);
 
-module.exports = thought;
+module.exports = Thought;
