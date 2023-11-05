@@ -1,5 +1,5 @@
 //import mongoose 
-const mongoose = require('mon;goose');
+const mongoose = require('mongoose');
 
 //Connect to Mongoose
 //Hide MongoDB URI in the .env for security purposes
