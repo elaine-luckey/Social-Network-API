@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
       message: "Please enter a valid email address",
     },
-    thoughts: [
+    thoughtText: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "thought",
